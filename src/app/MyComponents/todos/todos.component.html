@@ -1,0 +1,39 @@
+<div class="container">
+    <header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 ">
+        <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+           <h1> <i class="bi bi-watch text-danger"></i></h1>
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2  text-danger">Home</a></li>
+        </ul>
+
+        <div class="col-md-3 text-end">
+            <app-add-todo (todoAdd)="todoAdd($event)"></app-add-todo>
+        </div>
+
+    </header>
+</div>
+
+
+
+<h3 class="text-center text-white mt-5">All Todo Lists</h3>
+<div  *ngIf="todos.length>0; else elseBlock">
+    <div class="container px-4 py-5" id="custom-cards">
+        <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+            <div class="col" *ngFor="let todo of todos">
+                <app-todo-list [todo]="todo" (todoDelete)="todoDelete($event)" (todoDone)="todoDone($event)" (todoUnDone)="todoUnDone($event)"></app-todo-list>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #elseBlock>
+
+    
+    <div style="width: 500px; margin: auto;" class="alert alert-warning text-center my-5" role="alert">
+        Todo list is empty
+    </div>
+
+</ng-template>
+

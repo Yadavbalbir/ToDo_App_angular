@@ -1,0 +1,40 @@
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <style>
+        .card-cover {
+            background-color: #101820ff;
+            backdrop-filter: blur(2.1px);
+        }
+    </style>
+</head>
+
+<div class="card card-cover h-100 overflow-hidden text-white  rounded-4 shadow-lg">
+
+    <div class="d-flex flex-column h-100 p-5 pb-3 text-white text-shadow-1">
+        <div *ngIf="todo.active==false; else elseBlock">
+            <span class="badge bg-success" style="width: 100px; margin-top:-30px;">completed</span>
+        </div>
+        <ng-template #elseBlock>
+            <span class="badge bg-danger" style="width: 100px; margin-top:-20px;">incomplete</span>
+        </ng-template>
+
+
+        <h2 class="pt-2  display-6 lh-1 fw-bold">{{todo.title}}</h2>
+        <p class="text-info">{{todo.desc}}</p>
+
+        <ul class="d-flex list-unstyled mt-auto">
+            <li class="me-auto">
+                <button class="btn btn-danger btn-sm" (click)="onClick(todo)">Delete</button>
+            </li>
+            <li class="d-flex align-items-center me-3">
+                <div *ngIf="todo.active==true; else elseBlock2">
+                    <button class="btn btn-success btn-sm" (click)="onClick2(todo)">Mark as complete</button>
+                </div>
+                <ng-template #elseBlock2>
+                    <button class="btn btn-warning btn-sm" (click)="onClick3(todo)">Mark as incomplete</button>
+                </ng-template>
+                
+            </li>
+        </ul>
+    </div>
+</div>
