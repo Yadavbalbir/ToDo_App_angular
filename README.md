@@ -4,7 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Screenshots
 
-<img src="./Screenshots/homepage.png">
+- ### Homepage
+    <img src="./Screenshots/homepage.png">
+
+- ### Add ToDo
+    <img src="./Screenshots/addTodo.png">
 
 ## Development server
 
